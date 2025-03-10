@@ -12,15 +12,15 @@ typedef struct veiculo {
     struct veiculo *proximo;
 }Veiculo;
 
-// FunÁ„o de inserir veiculo na lista
+// Fun√ß√£o de inserir veiculo na lista
 
 void inserir_veiculo(Veiculo **lista, char motorista[50], char placa[7], char telefone[14]) {
-    Veiculo *novo = malloc(sizeof(Veiculo)); // Alocar espaÁo na memÛria
+    Veiculo *novo = malloc(sizeof(Veiculo)); // Alocar espa√ßo na mem√≥ria
 
     // Verificar se foi alocado
 
     if(novo) {
-        // Atribuir valores e apontar para o proximo espaÁo da lista
+        // Atribuir valores e apontar para o proximo espa√ßo da lista
         strcpy(novo -> motorista, motorista);
         strcpy(novo -> placa, placa);
         strcpy(novo -> telefone, telefone);
@@ -28,11 +28,11 @@ void inserir_veiculo(Veiculo **lista, char motorista[50], char placa[7], char te
         *lista = novo;
     }
     else {
-        printf("Erro ao alocar memÛria\n");
+        printf("Erro ao alocar mem√≥ria\n");
     }
 }
 
-// FunÁ„o de exibir lista
+// Fun√ß√£o de exibir lista
 
 void exibir_lista(Veiculo *lista) {
     printf("------------------------------------\n");
@@ -65,7 +65,7 @@ int main(void) {
         // Limpar a tela
         system("cls");
 
-        // Mostrar o menu e pedir a opÁ„o
+        // Mostrar o menu e pedir a op√ß√£o
         printf("------------------------------------\n");
         printf("Estacionamento\n");
         printf("------------------------------------\n");
@@ -76,14 +76,14 @@ int main(void) {
         printf("[0] Sair\n");
         scanf("%i", &opcao);
 
-        // Executar a opÁ„o digitada
+        // Executar a op√ß√£o digitada
         switch (opcao) {
 
         case 1:
             // Limpar a tela
             system("cls");
 
-            // Pedir os dados ao usu·rio
+            // Pedir os dados ao usu√°rio
             printf("------------------------------------\n");
             printf("Informe os dados do veiculo\n");
             printf("------------------------------------\n");
@@ -101,8 +101,8 @@ int main(void) {
             printf("Pressione enter para retornar ao menu\n");
             getch();
 
-            // Chamar a funÁ„o de inserir valor na lista
-            inserir_veiculo(&minha_lista, motorista, placa, telefone);
+            // Chamar a fun√ß√£o de inserir valor na lista
+            inserir_veiculo(&estacionamento, motorista, placa, telefone);
 
         break;
 
@@ -110,8 +110,8 @@ int main(void) {
             // Limpar a tela
             system("cls");
 
-            // Chamar a funÁ„o de exibir a lista
-            exibir_lista(minha_lista);
+            // Chamar a fun√ß√£o de exibir a lista
+            exibir_lista(estacionamento);
 
             printf("Pressione enter para retornar ao menu\n");
             getch();
