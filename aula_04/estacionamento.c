@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 
 // Criar a estrutura veiculo
 typedef struct veiculo {
@@ -14,13 +13,13 @@ typedef struct veiculo {
     struct veiculo *proximo;
 }Veiculo;
 
-// FunÁ„o para inserir valor na lista
+// Fun√ß√£o para inserir valor na lista
 void inserir_na_posicao(Veiculo **lista, int posicao, char motorista[50], char placa[7], char telefone[14]) {
 
-    // Reservar espaÁo na memÛria
+    // Reservar espa√ßo na mem√≥ria
     Veiculo *novo = malloc(sizeof(Veiculo));
 
-    // Verifica se a memÛria foi alocada
+    // Verifica se a mem√≥ria foi alocada
     if(novo){
         novo -> vaga = posicao;
         strcpy(novo -> motorista, motorista);
@@ -39,14 +38,14 @@ void inserir_na_posicao(Veiculo **lista, int posicao, char motorista[50], char p
         Veiculo *anterior = NULL;
         int indice = 0;
 
-        // Percorre a lista atÈ achar a posiÁ„o desejada ou o final da lista
+        // Percorre a lista at√© achar a posi√ß√£o desejada ou o final da lista
         while(atual != NULL && indice < posicao){
             anterior = atual;
             atual = atual -> proximo;
             indice++;
         }
 
-        // Verifica se a posiÁ„o desejada for a primeira da lista
+        // Verifica se a posi√ß√£o desejada for a primeira da lista
         if(anterior == NULL){
             novo -> proximo = *lista;
             (*lista) -> anterior = novo;
@@ -63,11 +62,11 @@ void inserir_na_posicao(Veiculo **lista, int posicao, char motorista[50], char p
         }
     }
     else{
-        printf("Erro ao alocar a memÛria!");
+        printf("Erro ao alocar a mem√≥ria!");
     }
 }
 
-// FunÁ„o para exibir a lista
+// Fun√ß√£o para exibir a lista
 void exibir_lista(Veiculo *lista) {
     printf("------------------------------------\n");
     printf("Vagas ocupadas\n");
@@ -101,7 +100,7 @@ int main(void) {
         // Limpar a tela
         system("cls");
 
-        // Mostrar o menu e pedir a opÁ„o
+        // Mostrar o menu e pedir a op√ß√£o
         printf("------------------------------------\n");
         printf("Estacionamento\n");
         printf("------------------------------------\n");
@@ -112,14 +111,14 @@ int main(void) {
         printf("[0] Sair\n");
         scanf("%i", &opcao);
 
-        // Executar a opÁ„o digitada
+        // Executar a op√ß√£o digitada
         switch (opcao) {
 
         case 1:
             // Limpar a tela
             system("cls");
 
-            // Pedir os dados ao usu·rio
+            // Pedir os dados ao usu√°rio
             printf("------------------------------------\n");
             printf("Informe os dados do veiculo\n");
             printf("------------------------------------\n");
@@ -136,9 +135,9 @@ int main(void) {
             printf("Telefone: ");
             scanf("%s", telefone);
 
-            // Verificar se a vaga est· ocupada
+            // Verificar se a vaga est√° ocupada
             if (vagas_disponiveis[vaga] == 0){
-                // Chamar funÁ„o para inserir valores na lista
+                // Chamar fun√ß√£o para inserir valores na lista
                 inserir_na_posicao(&estacionamento, vaga, motorista, placa, telefone);
                 vagas_disponiveis[vaga] = 1;
                 printf("\nVeiculo cadastrado!\n");
@@ -157,7 +156,7 @@ int main(void) {
             // Limpar a tela
             system("cls");
 
-            // Chamar funÁ„o para exibir a lista
+            // Chamar fun√ß√£o para exibir a lista
             exibir_lista(estacionamento);
 
             printf("Pressione enter para retornar ao menu\n");
